@@ -17,10 +17,10 @@ class SubscribeApiHttpClient extends BaseApiHttpClient
      * @param bool|null $isTest Flag to indicate if test mode is active
      */
     public function __construct(
-        private readonly ?string $id = null,
-        private readonly ?string $key = null,
-        private ?string $apiUrl = null,
-        private readonly ?bool $isTest = false,
+        private readonly string|null $id = null,
+        private readonly string|null $key = null,
+        private string|null $apiUrl = null,
+        private readonly bool|null $isTest = false,
     ) {
         // Set the correct base URL based on the test mode
         $this->apiUrl = $this->isTest ? self::BASE_TEST_URL : self::BASE_URL;

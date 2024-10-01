@@ -39,8 +39,8 @@ class SubscribeApi extends BaseApi
         string $cardNumber,
         string $expiryDate,
         bool $save = false,
-        ?string $customer = null,
-        ?array $account = null
+        string|null $customer = null,
+        array|null $account = null
     ): object {
         $params = [
             'card' => [
