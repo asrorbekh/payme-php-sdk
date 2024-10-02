@@ -102,9 +102,4 @@ class MerchantApiHttpClient extends BaseApiHttpClient
 
         return $this->response;
     }
-
-    public function __toString(): string
-    {
-        return json_encode($this->response);
-    }
 }
