@@ -11,13 +11,13 @@ class SubscribeApi extends BaseApi
     /**
      * SubscribeApi constructor.
      *
-     * @param string $id The ID of the cash register (merchant ID).
-     * @param string $key The API key for the merchant.
+     * @param string|null $id The ID of the cash register (merchant ID).
+     * @param string|null $key The API key for the merchant.
      * @param bool $isTest Flag to determine if using the test environment.
      */
     public function __construct(
-        private readonly string $id,
-        private readonly string $key,
+        private readonly string|null $id = null,
+        private readonly string|null $key = null,
         private readonly bool $isTest = false
     ) {
         $this->client = new SubscribeApiHttpClient(
@@ -133,8 +133,12 @@ class SubscribeApi extends BaseApi
      *
      * @return object
      */
-    public function createReceipt(int $amount, array $account, string|null $description = null, array|null $detail = null): object
-    {
+    public function createReceipt(
+        int $amount,
+        array $account,
+        string|null $description = null,
+        array|null $detail = null
+    ): object {
         $params = [
             'amount' => $amount,
             'account' => $account

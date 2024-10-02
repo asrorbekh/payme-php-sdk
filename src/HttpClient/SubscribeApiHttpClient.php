@@ -22,8 +22,9 @@ class SubscribeApiHttpClient extends BaseApiHttpClient
         private string|null $apiUrl = null,
         private readonly bool|null $isTest = false,
     ) {
-        // Set the correct base URL based on the test mode
-        $this->apiUrl = $this->isTest ? self::BASE_TEST_URL : self::BASE_URL;
+        if (!$this->apiUrl) {
+            $this->apiUrl = $this->isTest ? self::BASE_TEST_URL : self::BASE_URL;
+        }
     }
 
     /**
@@ -40,10 +41,12 @@ class SubscribeApiHttpClient extends BaseApiHttpClient
         $curl->setTimeout($this->timeout);
 
         if ($this->key) {
-            $curl->setHeader('X-Auth', "{$this->id}:{$this->key}");
+            $token = "{$this->id}:{$this->key}";
         } else {
-            $curl->setHeader('X-Auth', $this->id);
+            $token = "$this->id";
         }
+
+        $curl->setHeader('X-Auth', $token);
 
         $curl->setHeader('Content-Type', 'application/json');
 

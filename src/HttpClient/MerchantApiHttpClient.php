@@ -12,18 +12,20 @@ use Curl\Curl;
 class MerchantApiHttpClient extends BaseApiHttpClient
 {
     /**
-     * @param string|null $login Merchant API login credential
-     * @param string|null $password Merchant API password credential
+     * @param string $login Merchant API login credential
+     * @param string $password Merchant API password credential
      * @param string|null $apiUrl API URL
      * @param bool|null $isTest Whether to use test URL or production URL
      */
     public function __construct(
-        private readonly string|null $login = null,
-        private readonly string|null $password = null,
+        private readonly string $login,
+        private readonly string $password,
         protected string|null $apiUrl = null,
         private readonly bool|null $isTest = false,
     ) {
-        $this->apiUrl = $this->isTest ? self::BASE_TEST_URL : self::BASE_URL;
+        if (!$this->apiUrl) {
+            $this->apiUrl = $this->isTest ? self::BASE_TEST_URL : self::BASE_URL;
+        }
     }
 
     /**
