@@ -11,7 +11,7 @@ class MerchantApi extends BaseApi
     /**
      * MerchantApi constructor
      *
-     * @param string $login Merchant API login
+     * @param string $login Merchant API login -> use Paycom
      * @param string $password Merchant API password
      * @param bool $isTest Flag to determine if using test API
      */
