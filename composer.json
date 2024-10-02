@@ -1,6 +1,6 @@
 {
   "name": "payme-uz/payme-php-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PHP SDK for Payme Business, Merchant Subscribe and TelegramBot API",
   "homepage": "https://payme.uz/",
   "license": "MIT",
