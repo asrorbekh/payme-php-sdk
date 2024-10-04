@@ -2,11 +2,10 @@
 
 namespace Subscribe;
 
-use PaymeUz\HttpClient\SubscribeApiHttpClient;
-use PaymeUz\Util\Core;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use PaymeUz\HttpClient\SubscribeApiHttpClient;
 use PaymeUz\Api\SubscribeApi;
 use ReflectionClass;
 
