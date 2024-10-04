@@ -192,6 +192,33 @@ abstract class Core
     }
 
     /**
+     * Rebuilds an array from a flattened list of key-value pairs.
+     *
+     * @param array $flattenedData
+     * @return array
+     */
+    public static function rebuildParams(array $flattenedData): array
+    {
+        $result = [];
+
+        foreach ($flattenedData as [$key, $value]) {
+            $keys = preg_replace('/]/', '', $key);
+            $keys = explode('[', $keys);
+
+            $temp = &$result;
+            foreach ($keys as $innerKey) {
+                if (!isset($temp[$innerKey])) {
+                    $temp[$innerKey] = [];
+                }
+                $temp = &$temp[$innerKey];
+            }
+            $temp = $value;
+        }
+
+        return $result;
+    }
+
+    /**
      * @param string $key a string to URL-encode
      *
      * @return string the URL-encoded string
