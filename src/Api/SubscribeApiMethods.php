@@ -22,4 +22,5 @@ class SubscribeApiMethods
     public const RECEIPTS_GET = 'receipts.get';
     public const RECEIPTS_GET_ALL = 'receipts.get_all';
     public const RECEIPTS_SET_FISCAL_DATA = 'receipts.set_fiscal_data';
+    public const RECEIPTS_CONFIRM_HOLD = 'receipts.confirm_hold';
 }

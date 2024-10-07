@@ -284,4 +284,19 @@ class SubscribeApi extends BaseApi
 
         return $this->client->sendRequest(SubscribeApiMethods::RECEIPTS_SET_FISCAL_DATA, $params);
     }
+
+    /**
+     * Confirm hold for a receipt.
+     *
+     * @param string $receiptId The unique check ID in Payme DB.
+     * @return object
+     */
+    public function confirmHold(string $receiptId): object
+    {
+        $params = [
+            'id' => $receiptId
+        ];
+
+        return $this->client->sendRequest(SubscribeApiMethods::RECEIPTS_CONFIRM_HOLD, $params);
+    }
 }
